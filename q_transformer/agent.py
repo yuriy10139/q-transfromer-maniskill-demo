@@ -3,6 +3,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import numpy as np
 from numpy.lib.format import open_memmap
 
 import torch
@@ -119,6 +120,9 @@ class ReplayMemoryDataset(Dataset):
         next_state_timestep = min(timestep_index, self.max_episode_len - 1)
         next_state = self.states[episode_index, next_state_timestep].copy()
         next_text_embed = self.text_embeds[episode_index, next_state_timestep].copy()
+
+        states = states.astype(np.float32)
+        next_state = next_state.astype(np.float32)
 
         return text_embeds, states, actions, next_state, next_text_embed, rewards, dones
 

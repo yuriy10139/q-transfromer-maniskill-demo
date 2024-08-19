@@ -608,7 +608,7 @@ class QLearner(Module):
 
                     self.accelerator.backward(loss / self.grad_accum_every)
 
-            self.print(f'td loss: {td_loss.item():.3f}')
+            self.print(f'step {step} td loss: {td_loss.item():.3f}')
 
             # clip gradients (transformer best practices)
 
