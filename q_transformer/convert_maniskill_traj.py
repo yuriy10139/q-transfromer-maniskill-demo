@@ -118,6 +118,9 @@ if __name__ == "__main__":
     max_traj_len = 75  # find 'acceptable' vaule of this variable using these commented section
 
     mem_path = Path(DEFAULT_REPLAY_MEMORIES_FOLDER)
+    mem_path.mkdir(exist_ok = True, parents = True)
+    assert mem_path.is_dir()
+
     states_path = mem_path / STATES_FILENAME
     actions_path = mem_path / ACTIONS_FILENAME
     rewards_path = mem_path / REWARDS_FILENAME

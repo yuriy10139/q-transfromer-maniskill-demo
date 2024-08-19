@@ -19,7 +19,7 @@ $ python3 -m pip install --upgrade mani_skill
 # download and convert PushCube-v1 trajectories to have RGB observations
 $ cd q_transformer
 $ mkdir ./demos
-$ python3 -m mani_skill.utils.download_demo 'PushCube-v1' --ooutput_dir ./demos
+$ python3 -m mani_skill.utils.download_demo 'PushCube-v1' --output_dir ./demos
 $ python3 -m mani_skill.trajectory.replay_trajectory  --traj-path ./demos/PushCube-v1/motionplanning/trajectory.h5 -c pd_ee_delta_pose -o rgbd --save-traj --max-retry 10
 
 # convert trajectories into Q-transformer format
